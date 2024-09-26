@@ -34,7 +34,7 @@ namespace ZimoziApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> InsertEmployee(Employee employee)
+        public async Task<ActionResult> InsertEmployee(InsertEmployeeDto employee)
         {
             await _employeeService.InsertEmployee(employee);
             return Ok("Added Sucessfully");
@@ -55,7 +55,7 @@ namespace ZimoziApplication.Controllers
         public async Task<ActionResult> DeleteEmployee(int id)
         {
             await _employeeService.DeleteEmployee(id);
-            return NoContent(); ul
+            return NoContent(); 
         }
     }
 }

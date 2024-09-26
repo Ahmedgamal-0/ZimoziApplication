@@ -40,7 +40,7 @@ namespace ZimoziApplication.Testing
         public async Task AddEmployeeAsync_ShouldAddEmployeeToDatabase()
         {
             // Arrange
-            var employee = new Employee { Name = "Ahmed Gamal", Department = "IT", Salary = 7000 };
+            var employee = new InsertEmployeeDto { Name = "Ahmed Gamal", Department = "IT", Salary = 7000 };
 
             // Act
             await _service.InsertEmployee(employee);

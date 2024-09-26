@@ -16,8 +16,12 @@ namespace ZimoziApplication.Services
 
         #endregion
         #region methods
-        public async Task InsertEmployee(Employee employee)
+        public async Task InsertEmployee(InsertEmployeeDto employeeToInsert)
         {
+            var employee = new Employee();
+            employee.Name=employeeToInsert.Name;
+            employee.Department=employeeToInsert.Department;
+            employee.Salary=employeeToInsert.Salary;
             await _context.Employees.AddAsync(employee);
             await _context.SaveChangesAsync();
         }
