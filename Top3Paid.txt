@@ -1,0 +1,22 @@
+﻿SELECT
+    "EmployeeID",
+    "Name",
+    "Department",
+    "Salary"
+FROM (
+    SELECT
+        "EmployeeID",
+        "Name",
+        "Department",
+        "Salary",
+        ROW_NUMBER()OVER (PARTITION BY "Department" ORDER BY "Salary" DESC)AS RowNum
+    FROM "Employees"
+) AS RankedEmployees
+WHERE
+    RowNum <= 3
+ORDER BY
+    "Department", "Salary" DESC;
+
+    ----------------------
+    Here i used the funtion Row_number so i can get the first nth digit for any query needed,i also used double quotes "" for Case Sensitivity
+    and i ordered the result by both department and salary .
